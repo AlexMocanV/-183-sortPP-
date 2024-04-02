@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<int>v;
+vector<int>pp;
+int main()
+{
+    int n;
+    cin>>n;
+    v.resize(n);
+    for(auto&i:v)
+    {
+        cin>>i;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==(int(sqrt(v[i]))*int(sqrt(v[i]))))        
+        {
+            pp.push_back(v[i]);
+            v[i]=-1;
+        }
+    }
+    sort(pp.begin(),pp.end());
+    int j=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==-1)
+        {
+            swap(pp[j],v[i]);
+            j++;
+        }
+    }
+    for(auto&i:v)
+    {
+        cout<<i<<" ";
+    }
+    return 0;
+}
